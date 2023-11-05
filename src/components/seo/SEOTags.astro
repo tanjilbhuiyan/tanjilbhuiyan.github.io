@@ -1,0 +1,20 @@
+---
+import { SEO } from "astro-seo";
+import { SITE_URL } from "@/data/config";
+import type { HeadTags } from "@/utils/types/HeadTags";
+
+type Props = HeadTags;
+
+const { title, description, noindex, og } = Astro.props;
+
+const DEFAULT_TITLE_PAGE = "Personal Portfolio & Blog";
+const DEFAULT_URL_SITE = SITE_URL;
+---
+
+<head>
+  <SEO
+    charset="UTF-8"
+    title={title || DEFAULT_TITLE_PAGE}
+    noindex={noindex || false}
+  />
+</head>
