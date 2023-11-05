@@ -1,1 +1,0 @@
-export const SITE_URL = "https://mdtanjilbhuiyan.gitlab.io/";
