@@ -30,7 +30,7 @@ jobs:
     - name: Run build
       run: |
         pnpm run build
-        echo "::set-env name=BUILD_PATH::dist"
+        echo "BUILD_PATH=dist" >> $GITHUB_ENV
 
   deploy:
     environment:
