@@ -52,7 +52,7 @@ jobs:
   deploy:
     environment:
         name: github-pages
-        url:  "https://blog.mdtanjilbhuiyan.xyz"
+        url:  ${{steps.deployment.outputs.page_url}}
     runs-on: ubuntu-latest
     needs: build
     permissions:
@@ -60,7 +60,7 @@ jobs:
       id-token: write   # to update the deployment status
     steps:
     - name: Deploy to GitHub Pages
+      id: deployment
       uses: actions/deploy-pages@v4.0.2
       with:
         artifact_name: astro
-        clean: true
