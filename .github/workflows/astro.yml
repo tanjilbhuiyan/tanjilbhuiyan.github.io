@@ -46,7 +46,7 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.0.0
       with:
-        name: ${{ github.sha }}
+        name: astro
         path: dist/
 
   deploy:
@@ -62,4 +62,4 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4.0.2
       with:
-        artifact_name: ${{ github.sha }}
+        artifact_name: astro
