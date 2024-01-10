@@ -44,7 +44,7 @@ jobs:
       run: |
         pnpm run build
     - name: Upload GitHub Pages artifact
-      uses: actions/upload-pages-artifact@v2.0.0
+      uses: actions/upload-pages-artifact@v3.0.0
       with:
         path: ${{ env.BUILD_PATH }}/dist
 
@@ -53,7 +53,10 @@ jobs:
           name: github-pages
           url: ${{steps.deployment.outputs.page_url}}
       runs-on: ubuntu-latest
+      permissions:
+        pages: write      # to deploy to Pages
+        id-token: write   # to update the environment status
       needs: build
       steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
