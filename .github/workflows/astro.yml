@@ -13,6 +13,7 @@ concurrency:
 
 env:
   BUILD_PATH: "." 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,17 +26,11 @@ jobs:
       with:
         bun-version: latest
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-
     - name: Bun install & build
       run: |
         bun install
         bun run build
-    - name: Upload GitHub Pages artifact
-      uses: actions/upload-pages-artifact@v2.0.0
-      with:
-        path: ${{ env.BUILD_PATH }}/dist
+        echo "::set-env name=BUILD_PATH::dist"
 
   deploy:
     environment:
@@ -46,3 +41,5 @@ jobs:
     steps:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v2
+      with:
+        path: ${{ env.BUILD_PATH }}
