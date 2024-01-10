@@ -47,20 +47,29 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: astro
-        path: dist/
+        path: ${{ env.BUILD_PATH }}/dist
 
+  # deploy:
+  #   environment:
+  #       name: github-pages
+  #       url:  ${{steps.deployment.outputs.page_url}}
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   permissions:
+  #     pages: write      # to deploy to Pages
+  #     id-token: write   # to update the deployment status
+  #   steps:
+  #   - name: Deploy to GitHub Pages
+  #     id: deployment
+  #     uses: actions/deploy-pages@v4.0.2
+  #     with:
+  #       artifact_name: astro
   deploy:
     environment:
         name: github-pages
-        url:  ${{steps.deployment.outputs.page_url}}
+        url: https://tanjilbhuiyan.github.io
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to update the deployment status
     steps:
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4.0.2
-      with:
-        artifact_name: astro
+      uses: actions/deploy-pages@v2
