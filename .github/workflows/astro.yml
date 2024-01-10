@@ -25,21 +25,41 @@ jobs:
       uses: pnpm/action-setup@v2.4.0
       with:
         version: 8
+        run_install: false
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    - uses: actions/cache@v3
+      name: Setup pnpm cache
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
     - name: Install dependencies
       run: pnpm install
     - name: Run build
       run: |
         pnpm run build
-        echo "BUILD_PATH=dist" >> $GITHUB_ENV
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.0.0
+      with:
+        name: ${{ github.sha }}
+        path: dist/
 
   deploy:
     environment:
         name: github-pages
-        url: https://tanjilbhuiyan.github.io
+        url:  "https://blog.mdtanjilbhuiyan.xyz"
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to update the deployment status
     steps:
     - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v4.0.2
       with:
-        path: ${{ env.BUILD_PATH }}
+        artifact_name: ${{ github.sha }}
