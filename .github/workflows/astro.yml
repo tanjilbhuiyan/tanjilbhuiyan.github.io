@@ -54,9 +54,10 @@ jobs:
           url: ${{steps.deployment.outputs.page_url}}
       runs-on: ubuntu-latest
       permissions:
-        pages: write      # to deploy to Pages
-        id-token: write   # to update the environment status
+        pages: write
+        id-token: write
       needs: build
       steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v4.0.4
