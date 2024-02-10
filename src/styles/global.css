@@ -16,21 +16,21 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 @font-face {
-	font-family: 'IBM Plex Sans';
-	src: url('/fonts/ibmplexsans-regular.woff2') format('woff2');
+	font-family: 'Signika';
+	src: url('/fonts/signika-regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'IBM Plex Sans';
-	src: url('/fonts/ibmplexsans-bold.woff2') format('woff2');
+	font-family: 'Signika';
+	src: url('/fonts/signika-bold.woff2') format('woff2');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 body {
-	font-family: 'IBM Plex Sans', sans-serif;
+	font-family: 'Signika', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
