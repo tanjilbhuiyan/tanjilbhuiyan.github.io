@@ -5,8 +5,8 @@ import { Resvg } from "@resvg/resvg-js";
 import { siteConfig } from "@/site-config";
 import { getAllPosts, getFormattedDate } from "@/utils";
 
-import RobotoMono from "@/assets/roboto-mono-regular.ttf";
-import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
+import FiraMono from "@/assets/FiraMono-Regular.ttf";
+import FiraMonoBold from "@/assets/FiraMono-Bold.ttf";
 
 const ogOptions: SatoriOptions = {
 	width: 1200,
@@ -14,14 +14,14 @@ const ogOptions: SatoriOptions = {
 	// debug: true,
 	fonts: [
 		{
-			name: "Roboto Mono",
-			data: Buffer.from(RobotoMono),
+			name: "Fira Mono",
+			data: Buffer.from(FiraMono),
 			weight: 400,
 			style: "normal",
 		},
 		{
-			name: "Roboto Mono",
-			data: Buffer.from(RobotoMonoBold),
+			name: "Fira Mono",
+			data: Buffer.from(FiraMonoBold),
 			weight: 700,
 			style: "normal",
 		},
