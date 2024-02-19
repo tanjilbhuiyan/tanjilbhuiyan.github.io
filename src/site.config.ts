@@ -3,11 +3,11 @@ import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: "Chris Williams",
+	author: "Md. Tanjil Bhuiyan",
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: "Astro Theme Cactus",
+	title: "Md. Tanjil Bhuiyan",
 	// Meta property used as the default description meta property
-	description: "An opinionated starter theme for Astro",
+	description: "Personal blog site",
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: "en-GB",
 	// Meta property, found in src/components/BaseHead.astro L:42
@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	webmentions: {
-		link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
+		link: "",
 	},
 };
 
@@ -45,7 +45,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ["dracula", "github-light"],
+	themes: ["vitesse-dark", "github-light"],
 	themeCssSelector(theme, { styleVariants }) {
 		// If one dark and one light theme are available
 		// generate theme CSS selectors compatible with cactus-theme dark mode switch
