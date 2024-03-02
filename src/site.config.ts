@@ -22,7 +22,8 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	webmentions: {
-		link: "",
+		link: "https://webmention.io/blog.mdtanjilbhuiyan.xyz/webmention",
+		pingback: "https://webmention.io/blog.mdtanjilbhuiyan.xyz/xmlrpc",
 	},
 };
 
