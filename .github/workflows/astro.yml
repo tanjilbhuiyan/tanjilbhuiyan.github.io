@@ -26,7 +26,7 @@ jobs:
       with:
         tokenPrefix: '#{'
         tokenSuffix: '}'
-        filePattern: '.env'
+        files: '[".env"]'
       env:
         WEBMENTION_TOKEN: ${{ secrets.WEBMENTION_TOKEN }}
 
