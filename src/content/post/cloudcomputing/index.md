@@ -6,6 +6,7 @@ updatedDate: "02 Mar 2024"
 coverImage:
   src: "./cover.png"
   alt: "Astro build wallpaper"
+draft: true
 tags: ["test", "markdown"]
 ---
 
