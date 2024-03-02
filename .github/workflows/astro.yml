@@ -21,6 +21,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Replace tokens
+      uses: cschleiden/replace-tokens@v1.3
+      with:
+        tokenPrefix: '#{'
+        tokenSuffix: '}'
+        filePattern: '.env'
+      env:
+        WEBMENTION_TOKEN: ${{ secrets.WEBMENTION_TOKEN }}
+
     - name: Setup pnpm
       uses: pnpm/action-setup@v3.0.0
       with:
